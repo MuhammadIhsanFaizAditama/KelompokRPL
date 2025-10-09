@@ -3,28 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function showRegister()
-    {
-        return view('auth.register');
-    }
-    public function register(Request $request)
+    public function proseslogin(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:user',
-            'password' => 'required|string|min:8|confirmed',
+            // 'name' => 'required|name|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|max:50'
         ]);
-
-        \App\Models\User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-            'role' => 'student', // Set default role to student
-        ]);
-
-        return redirect()->route('login')->with('success', 'Registration successful. Please login.');
+        if (Auth::attempt($request->only('email', 'password'), $request->remember)) {
+            return redirect()->route('dashboard.dashboard');
+        }
+        return redirect()->route('Login.login')->with('error', 'Login Gagal');
     }
 }
