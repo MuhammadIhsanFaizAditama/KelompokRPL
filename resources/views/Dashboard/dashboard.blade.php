@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - EduBridge</title>
     @vite('resources/css/app.css')
 </head>
+
 <body class="bg-gray-50 min-h-screen flex flex-col">
 
     <!-- Header -->
@@ -15,7 +17,7 @@
             <nav class="space-x-4">
                 <a href="{{ route('dashboard') }}" class="hover:underline">Dashboard</a>
                 <a href="{{ route('landing') }}" class="hover:underline">Landing</a>
-                <a href="#" class="hover:underline">Logout</a>
+                <a href="{{ route('logout') }}" class="hover:underline">Logout</a>
             </nav>
         </div>
     </header>
@@ -48,4 +50,5 @@
     </footer>
 
 </body>
+
 </html>

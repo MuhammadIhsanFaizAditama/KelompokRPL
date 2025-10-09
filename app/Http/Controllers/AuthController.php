@@ -15,8 +15,14 @@ class AuthController extends Controller
             'password' => 'required|max:50'
         ]);
         if (Auth::attempt($request->only('email', 'password'), $request->remember)) {
-            return redirect()->route('dashboard.dashboard');
+            return redirect('/dashboard');
         }
-        return redirect()->route('Login.login')->with('error', 'Login Gagal');
+        return redirect()->route('login.submit')->with('error', 'Login Gagal');
+    }
+
+    public function logout()
+    {
+        Auth::login(Auth::user());
+        return redirect('/login');
     }
 }

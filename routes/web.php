@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 // Landing page
@@ -22,12 +23,12 @@ Route::get('/login', function () {
     return view('Login.login');
 })->name('login');
 
-// // Route untuk menangani register POST
-// Route::post('/register', function (\Illuminate\Http\Request $request) {
-//     // Simulasi penyimpanan user
-//     // Biasanya disini pakai User::create([...]) jika pakai DB
-//     return redirect()->route('dashboard.dashboard');
-// })->name('register.submit');
+// Route untuk menangani register POST
+Route::post('/register', function (\Illuminate\Http\Request $request) {
+    // Simulasi penyimpanan user
+    // Biasanya disini pakai User::create([...]) jika pakai DB
+    return redirect()->route('dashboard.dashboard');
+})->name('register.submit');
 
 // // Route untuk menangani login POST
 // Route::post('/login', function (\Illuminate\Http\Request $request) {
@@ -39,6 +40,7 @@ Route::get('/login', function () {
 Route::post('/login', [AuthController::class, 'proseslogin'])->name('login.submit');
 
 // Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+
+//logout
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
