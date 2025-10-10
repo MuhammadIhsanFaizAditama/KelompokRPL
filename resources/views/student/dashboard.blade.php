@@ -15,9 +15,9 @@
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">EduBridge Dashboard</h1>
             <nav class="space-x-4">
-                <a href="{{ route('dashboard') }}" class="hover:underline">Dashboard</a>
-                <a href="{{ route('landing') }}" class="hover:underline">Landing</a>
-                <a href="{{ route('logout') }}" class="hover:underline">Logout</a>
+                <a href="{{ route('home') }}" class="hover:underline text-lg">Home</a>
+                <a href="{{ route('student.dashboard') }}" class="hover:underline text-lg">Dashboard</a>
+                <a href="#" class="hover:underline text-lg">Logout</a>
             </nav>
         </div>
     </header>
@@ -33,10 +33,7 @@
                 <h3 class="text-xl font-semibold mb-2">Kursus Aktif</h3>
                 <p>3 kursus yang sedang kamu ikuti</p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                <h3 class="text-xl font-semibold mb-2">Sertifikat</h3>
-                <p>2 sertifikat sudah diterbitkan</p>
-            </div>
+
             <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
                 <h3 class="text-xl font-semibold mb-2">Notifikasi</h3>
                 <p>1 pemberitahuan baru</p>

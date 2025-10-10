@@ -3,35 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar - EduBridge</title>
+    <title>Login - EduBridge</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+<body class="flex items-center justify-center min-h-screen bg-cover bg-center" 
+      style="background-image: url('images/loginbg.jpg');">    
+            
+      <div class="absolute inset-0 bg-black opacity-10"></div>
 
-    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
-        <h2 class="text-2xl font-bold text-center text-blue-600 mb-6">Daftar EduBridge</h2>
-
-        <form method="POST" action="{{ route('register.submit') }}">
+      <div class="w-full max-w-md bg-[#000006] rounded-lg shadow-lg p-5 opacity-80">
+        <h2 class="text-3xl font-bold text-center text-white mb-1 flex items-center justify-center gap-0">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo EduBridge" class="w-25 h-auto">
+            <span>Login <span class="text-blue-500">EduBridge</span></span>
+        </h2>
+        
+        <form method="POST" action="{{ route('login.submit') }}">
             @csrf
-            <!-- Nama -->
-            <div class="mb-4">
-                <label for="name" class="block text-gray-700 mb-2">Nama</label>
-                <input type="text" name="name" id="name" placeholder="Nama lengkap"
-                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-
             <!-- Email -->
             <div class="mb-4">
-                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                <label for="email" class="block text-gray-100 mb-2">Email</label>
                 <input type="email" name="email" id="email" placeholder="email@contoh.com"
-                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    class="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
 
             <!-- Password -->
             <div class="mb-6 relative">
-                <label for="password" class="block text-gray-700 mb-2">Password</label>
+                <label for="password" class="block text-gray-100 mb-2">Password</label>
                 <input type="password" name="password" id="password" placeholder="Password"
-                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10">
+                    class="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10">
 
                 <!-- Toggle Password Eye Icon -->
                 <span id="togglePassword" class="absolute right-3 top-10 cursor-pointer text-gray-500">
@@ -45,14 +44,14 @@
                 </span>
             </div>
 
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded shadow hover:bg-blue-700 transition">
-                Daftar
+            <button type="submit" class="w-full font-semibold bg-blue-700 text-white py-2 rounded shadow hover:bg-blue-500 transition">
+                Login
             </button>
         </form>
 
-        <p class="text-center text-gray-600 mt-4">
-            Sudah punya akun? 
-            <a href="{{ route('login') }}" class="text-blue-600 hover:underline">Login</a>
+        <p class="text-center text-gray-100 mt-5">
+            Belum punya akun? 
+            <a href="{{ route('register') }}" class="text-blue-500 hover:underline">Daftar</a>
         </p>
     </div>
 

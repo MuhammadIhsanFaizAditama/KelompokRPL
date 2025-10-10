@@ -4,43 +4,25 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
-// Landing page
+// Halaman utama
 Route::get('/', function () {
-    return view('Dashboard.landing');
-})->name('landing');
+    return view('home');
+})->name('home');
 
-Route::get('landing', function () {
-    return view('Dashboard.landing');
-});
+// Auth
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'prosesLogin'])->name('login.submit');
 
-// Register page
-Route::get('/register', function () {
-    return view('Login.register');
-})->name('register');
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'prosesRegister'])->name('register.submit');
 
-// Login page
-Route::get('/login', function () {
-    return view('Login.login');
-})->name('login');
-
-// Route untuk menangani register POST
-Route::post('/register', function (\Illuminate\Http\Request $request) {
-    // Simulasi penyimpanan user
-    // Biasanya disini pakai User::create([...]) jika pakai DB
-    return redirect()->route('dashboard.dashboard');
-})->name('register.submit');
-
-// // Route untuk menangani login POST
-// Route::post('/login', function (\Illuminate\Http\Request $request) {
-//     // Simulasi login valid
-//     // Biasanya disini pakai Auth::attempt([...])
-//     return redirect()->route('login.dashboard');
-// })->name('login.submit');
-
-Route::post('/login', [AuthController::class, 'proseslogin'])->name('login.submit');
-
-// Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
-
-//logout
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Dashboard (pakai middleware auth)
+Route::get('/admin/dashboard', [DashboardController::class, 'admin'])
+    ->name('admin.dashboard')
+    ->middleware('auth');
+
+Route::get('/student/dashboard', [DashboardController::class, 'student'])
+    ->name('student.dashboard')
+    ->middleware('auth');
