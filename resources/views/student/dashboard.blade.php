@@ -1,51 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - EduBridge</title>
-    @vite('resources/css/app.css')
-</head>
+@section('content')
+<div class="p-6">
+    <h1 class="text-2xl font-bold mb-4">Selamat Datang, {{ $user->name }} 👋</h1>
 
-<body class="bg-gray-50 min-h-screen flex flex-col">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-    <!-- Header -->
-    <header class="bg-blue-600 text-white shadow p-6">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">EduBridge Dashboard</h1>
-            <nav class="space-x-4">
-                <a href="{{ route('home') }}" class="hover:underline text-lg">Home</a>
-                <a href="{{ route('student.dashboard') }}" class="hover:underline text-lg">Dashboard</a>
-                <a href="#" class="hover:underline text-lg">Logout</a>
-            </nav>
+        {{-- Card Statistik --}}
+        <div class="bg-white p-5 rounded-lg shadow">
+            <h2 class="text-gray-700 text-sm font-medium">Total Kursus</h2>
+            <p class="text-3xl font-bold text-blue-600 mt-2">{{ $totalCourses }}</p>
         </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="flex-1 container mx-auto p-8">
-        <h2 class="text-3xl font-bold mb-4">Selamat Datang!</h2>
-        <p class="text-gray-700">Ini adalah dashboard EduBridge. Di sini kamu bisa mengelola profil dan melihat aktivitas.</p>
-
-        <!-- Contoh card -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                <h3 class="text-xl font-semibold mb-2">Kursus Aktif</h3>
-                <p>3 kursus yang sedang kamu ikuti</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                <h3 class="text-xl font-semibold mb-2">Notifikasi</h3>
-                <p>1 pemberitahuan baru</p>
-            </div>
+        <div class="bg-white p-5 rounded-lg shadow">
+            <h2 class="text-gray-700 text-sm font-medium">Kursus Aktif</h2>
+            <p class="text-3xl font-bold text-green-600 mt-2">{{ $activeCourses }}</p>
         </div>
-    </main>
 
-    <!-- Footer -->
-    <footer class="bg-blue-600 text-white text-center p-6 mt-auto">
-        <p>&copy; {{ date('Y') }} EduBridge. All rights reserved.</p>
-    </footer>
+        <div class="bg-white p-5 rounded-lg shadow">
+            <h2 class="text-gray-700 text-sm font-medium">Materi Belum Dibaca</h2>
+            <p class="text-3xl font-bold text-red-600 mt-2">{{ $unreadMaterials }}</p>
+        </div>
 
-</body>
+    </div>
 
-</html>
+    {{-- Tombol menuju daftar kursus --}}
+    <div class="mt-8 text-center">
+        <a href="{{ route('student.courses') }}"
+           class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow transition duration-200">
+           🎓 Lihat Semua Kursus
+        </a>
+    </div>
+</div>
+@endsection
