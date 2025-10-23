@@ -9,7 +9,7 @@
 <body class="antialiased bg-gray-50 text-gray-800">
 
 <!-- Header -->
-<header class="bg-blue-500 text-white shadow px-6 py-0 relative">
+<header class="bg-pink-500 text-white shadow px-6 py-0 relative">
   <div class="container mx-auto flex justify-between items-center h-24">
     <div class="flex items-center space-x-3 relative">
       <div class="flex-shrink-0 absolute top-0">
