@@ -18,9 +18,10 @@
       <h1 class="text-2xl font-bold leading-none ml-27">EduBridge</h1>
     </div>
     <nav class="space-x-6">
-      <a href="#" class="hover:text-blue-300 hover:underline transition text-lg">Home</a>
+      {{-- <a href="#" class="hover:text-blue-300 hover:underline transition text-lg">Home</a> --}}
       <a href="#about" class="hover:text-blue-300 hover:underline transition text-lg">Tentang</a>
       <a href="#Layanan" class="hover:text-blue-300 hover:underline transition text-lg">Layanan</a>
+      <a href="#Kontak" class="hover:text-blue-300 hover:underline transition text-lg">Kontak</a>
       <a href="{{ route('register') }}" class="bg-white text-blue-500 px-4 py-2 rounded shadow hover:bg-gray-300 transition">Daftar</a>
       <a href="{{ route('login') }}" class="px-4 py-2 rounded border border-white hover:bg-gray-300 hover:text-blue-700 transition">Login</a>
     </nav>
@@ -138,10 +139,37 @@
     </div>
 </section>
 
+<!-- Kontak Kami -->
+<section id="Kontak" class="py-15 text-white text-center mb-25">
+    <h3 class="text-4xl font-bold text-center mb-10 text-blue-700">Kontak Kami</h3>
+    
+    <p class="text-xl text-center max-w-3xl mx-auto text-blue-700 mb-13 px-0 font-semibold">
+       Hubungi kami jika ada pertanyaan, saran, atau informasi yang ingin Anda ketahui.
+       <span class="font-bold text-blue-700">EduBridge</span> 
+       Siap membantu Anda kapan pun diperlukan untuk mendukung perjalanan belajar Anda.
+    </p>
+
+        <div class="flex flex-col md:flex-row justify-center items-center gap-20">
+    
+        <div class="bg-white text-blue-700 rounded-xl shadow-lg p-6 w-80 text-center hover:shadow-2xl transition transform hover:scale-101">            
+            <div class="flex flex-col items-center space-y-3">
+            <h4 class="text-xl font-semibold text-blue-700">📧 EduBridge@gmail.com</h4>
+            </div>
+        </div>
+
+        <div class="bg-white text-blue-700 rounded-xl shadow-lg p-6 w-80 text-center hover:shadow-2xl transition transform hover:scale-101">
+            <div class="flex flex-col items-center space-y-5">
+            <h4 class="text-xl font-semibold text-blue-600">📞 +6282234567890</h4>
+            </div>
+        </div>
+
+</section>
+
+
 
 
 <!-- Akhir -->
-<section id="about" class="py-16 container mx-auto text-center">
+<section id="about" class="py-16 container mx-auto text-center bg-gray-100">
     <h3 class="text-3xl font-bold mb-6 text-blue-700">EduBridge</h3>
     <p class="max-w-2xl mx-auto">
         EduBridge hadir sebagai solusi untuk mengurangi kesenjangan akses pendidikan non-formal dengan menyediakan
