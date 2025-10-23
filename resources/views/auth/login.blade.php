@@ -17,6 +17,13 @@
             <span>Login <span class="text-blue-500">EduBridge</span></span>
         </h2>
         
+        @if (session('error'))
+            <div class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center" role="alert">
+                <strong class="font-bold">Login gagal!</strong>
+                <span class="block sm:inline">{{ session('error') }}</span>
+            </div>
+        @endif
+        
         <form method="POST" action="{{ route('login.submit') }}">
             @csrf
             <!-- Email -->
