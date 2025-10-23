@@ -11,7 +11,7 @@
 
         <div class="absolute inset-0 bg-black opacity-10"></div>
 
-      <div class="w-full max-w-md bg-[#000006] rounded-lg shadow-lg p-5 opacity-80">
+      <div class="w-full max-w-md bg-[#000006] rounded-lg shadow-lg p-3 opacity-80">
         
         <h2 class="text-3xl font-bold text-center text-white mb-1 flex items-center justify-center gap-0">
             <img src="{{ asset('images/logo.png') }}" alt="Logo EduBridge" class="w-25 h-auto">
