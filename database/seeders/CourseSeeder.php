@@ -23,5 +23,6 @@ class CourseSeeder extends Seeder
             'title' => 'Database',
             'description' => 'Mengenal konsep dasar SQL dan relasi antar tabel.',
         ]);
+        
     }
 }
